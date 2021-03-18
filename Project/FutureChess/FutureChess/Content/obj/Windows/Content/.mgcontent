@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/BoardTiles/groundTile.png</File>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/BoardTiles/normalDarkTile.png</File>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/BoardTiles/normalLightTile.png</File>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/BoardTiles/voidTile.png</File>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/BoardTiles/wallTile.png</File>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/horsePiece.png</File>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/kingPiece.png</File>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/knightPiece.png</File>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/pawnPiece.png</File>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/queenPiece.png</File>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/towerPiece.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

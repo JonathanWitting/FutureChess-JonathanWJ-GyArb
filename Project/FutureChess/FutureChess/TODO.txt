@@ -1,0 +1,11 @@
+﻿Kolla youtube efter tutorials
+Länkar till källor
+Dokumentera vart jag hittat vad
+
+Hur gör man ett fantasy(special) schack spel i monogame (Frågeställning)
+
+hur gör man vanligt schack?
+hur gör man special schack?
+
+Dokumentera i loggbok
+Vad jag gjort, varför, hur, när
