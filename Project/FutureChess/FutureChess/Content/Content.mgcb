@@ -13,6 +13,13 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Fonts/textFontFC.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/textFontFC.spritefont
+
 #begin Images/BoardTiles/groundTile.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -85,6 +92,18 @@
 /processorParam:TextureFormat=Color
 /build:Images/Pieces/horsePiece.png
 
+#begin Images/Pieces/horsePieceW.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Pieces/horsePieceW.png
+
 #begin Images/Pieces/kingPiece.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -96,6 +115,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Images/Pieces/kingPiece.png
+
+#begin Images/Pieces/kingPieceW.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Pieces/kingPieceW.png
 
 #begin Images/Pieces/knightPiece.png
 /importer:TextureImporter
@@ -109,6 +140,18 @@
 /processorParam:TextureFormat=Color
 /build:Images/Pieces/knightPiece.png
 
+#begin Images/Pieces/knightPieceW.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Pieces/knightPieceW.png
+
 #begin Images/Pieces/pawnPiece.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -120,6 +163,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Images/Pieces/pawnPiece.png
+
+#begin Images/Pieces/pawnPieceW.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Pieces/pawnPieceW.png
 
 #begin Images/Pieces/queenPiece.png
 /importer:TextureImporter
@@ -133,6 +188,18 @@
 /processorParam:TextureFormat=Color
 /build:Images/Pieces/queenPiece.png
 
+#begin Images/Pieces/queenPieceW.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Pieces/queenPieceW.png
+
 #begin Images/Pieces/towerPiece.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -144,4 +211,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Images/Pieces/towerPiece.png
+
+#begin Images/Pieces/towerPieceW.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Pieces/towerPieceW.png
 

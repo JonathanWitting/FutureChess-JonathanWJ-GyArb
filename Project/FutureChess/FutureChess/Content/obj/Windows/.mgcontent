@@ -4,19 +4,33 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Fonts/textFontFC.spritefont</File>
     <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/BoardTiles/groundTile.png</File>
     <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/BoardTiles/normalDarkTile.png</File>
     <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/BoardTiles/normalLightTile.png</File>
     <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/BoardTiles/voidTile.png</File>
     <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/BoardTiles/wallTile.png</File>
     <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/horsePiece.png</File>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/horsePieceW.png</File>
     <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/kingPiece.png</File>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/kingPieceW.png</File>
     <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/knightPiece.png</File>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/knightPieceW.png</File>
     <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/pawnPiece.png</File>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/pawnPieceW.png</File>
     <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/queenPiece.png</File>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/queenPieceW.png</File>
     <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/towerPiece.png</File>
+    <File>C:/Users/Jonathan/source/repos/Games/Monogame/FutureChess/FutureChess/Content/Images/Pieces/towerPieceW.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

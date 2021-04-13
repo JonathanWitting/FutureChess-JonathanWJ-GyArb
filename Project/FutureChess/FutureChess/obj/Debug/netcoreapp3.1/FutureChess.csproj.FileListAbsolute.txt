@@ -45,3 +45,11 @@ C:\Users\Jonathan\source\repos\Games\Monogame\FutureChess\FutureChess\bin\Debug\
 C:\Users\Jonathan\source\repos\Games\Monogame\FutureChess\FutureChess\bin\Debug\netcoreapp3.1\Content\Images\BoardTiles\WallTile.xnb
 C:\Users\Jonathan\source\repos\Games\Monogame\FutureChess\FutureChess\bin\Debug\netcoreapp3.1\Content\Images\BoardTiles\normalDarkTile.xnb
 C:\Users\Jonathan\source\repos\Games\Monogame\FutureChess\FutureChess\bin\Debug\netcoreapp3.1\Content\Images\BoardTiles\normalLightTile.xnb
+C:\Users\Jonathan\source\repos\Games\Monogame\FutureChess\FutureChess\bin\Debug\netcoreapp3.1\Content\Images\Pieces\horsePieceW.xnb
+C:\Users\Jonathan\source\repos\Games\Monogame\FutureChess\FutureChess\bin\Debug\netcoreapp3.1\Content\Images\Pieces\kingPieceW.xnb
+C:\Users\Jonathan\source\repos\Games\Monogame\FutureChess\FutureChess\bin\Debug\netcoreapp3.1\Content\Images\Pieces\knightPieceW.xnb
+C:\Users\Jonathan\source\repos\Games\Monogame\FutureChess\FutureChess\bin\Debug\netcoreapp3.1\Content\Images\Pieces\pawnPieceW.xnb
+C:\Users\Jonathan\source\repos\Games\Monogame\FutureChess\FutureChess\bin\Debug\netcoreapp3.1\Content\Images\Pieces\queenPieceW.xnb
+C:\Users\Jonathan\source\repos\Games\Monogame\FutureChess\FutureChess\bin\Debug\netcoreapp3.1\Content\Images\Pieces\towerPieceW.xnb
+C:\Users\Jonathan\source\repos\Games\Monogame\FutureChess\FutureChess\bin\Debug\netcoreapp3.1\Content\File.xnb
+C:\Users\Jonathan\source\repos\Games\Monogame\FutureChess\FutureChess\bin\Debug\netcoreapp3.1\Content\Fonts\textFontFC.xnb

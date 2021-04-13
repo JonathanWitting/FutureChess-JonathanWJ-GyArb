@@ -7,12 +7,19 @@ using System.Collections.Generic;
 
 namespace FutureChess
 {
+    // Buggar
+
+    // boardGrid uppdateras inte altid
+    // Player2 (Vit) kan inte döda med bönder innan bonden flyttats från spawn
+
+    // Buggar
 
     // TODO
 
-    // boardGrid updateras när man flyttar en pjäs
-    // Att pjäser kan döda varandra
-    // Döda pjäser flyttas från brädet
+    // boardGrid uppdateras när en pjäs flyttas *
+    // Att pjäser kan döda varandra *
+    // Döda pjäser flyttas från brädet *
+
     // Adda resten av pjäsernas moves i GetPossiblePositions
     // Skapa funktion som kollar om någon av kungarna är i shack
 
@@ -31,22 +38,99 @@ namespace FutureChess
                 {
                     case PieceType.Tower:
                         break;
+
                     case PieceType.Horse:
+                        if (currentPiece.BoardPositionX + 2 <= 7 && currentPiece.BoardPositionY + 1 >= 0 && boardGrid[new Vector2(currentPiece.BoardPositionX + 2, currentPiece.BoardPositionY + 1)] != gridTileTypes.Player1)
+                        {
+                            allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX + 2, currentPiece.BoardPositionY + 1));
+                        } // 2 Right, 1 Forward
+                        if (currentPiece.BoardPositionX + 2 <= 7 && currentPiece.BoardPositionY - 1 >= 0 && boardGrid[new Vector2(currentPiece.BoardPositionX + 2, currentPiece.BoardPositionY - 1)] != gridTileTypes.Player1)
+                        {
+                            allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX + 2, currentPiece.BoardPositionY - 1));
+                        } // 2 Right, 1 Backward
+
+                        if (currentPiece.BoardPositionX - 2 >= 0 && currentPiece.BoardPositionY + 1 <= 7 && boardGrid[new Vector2(currentPiece.BoardPositionX - 2, currentPiece.BoardPositionY + 1)] != gridTileTypes.Player1)
+                        {
+                            allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX - 2, currentPiece.BoardPositionY + 1));
+                        } // 2 Left, 1 Forward
+                        if (currentPiece.BoardPositionX - 2 >= 0 && currentPiece.BoardPositionY - 1 >= 0 && boardGrid[new Vector2(currentPiece.BoardPositionX - 2, currentPiece.BoardPositionY - 1)] != gridTileTypes.Player1)
+                        {
+                            allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX - 2, currentPiece.BoardPositionY - 1));
+                        } // 2 Left, 1 Backward
+
+                        if (currentPiece.BoardPositionX + 1 <= 7 && currentPiece.BoardPositionY - 2 >= 0 && boardGrid[new Vector2(currentPiece.BoardPositionX + 1, currentPiece.BoardPositionY - 2)] != gridTileTypes.Player1)
+                        {
+                            allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX + 1, currentPiece.BoardPositionY - 2));
+                        } // 1 Right, 2 Backward
+                        if (currentPiece.BoardPositionX - 1 >= 0 && currentPiece.BoardPositionY - 2 >= 0 && boardGrid[new Vector2(currentPiece.BoardPositionX - 1, currentPiece.BoardPositionY - 2)] != gridTileTypes.Player1)
+                        {
+                            allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX - 1, currentPiece.BoardPositionY - 2));
+                        } // 1 Left, 2 Backward
+
+                        if (currentPiece.BoardPositionX - 1 >= 0 && currentPiece.BoardPositionY + 2 <= 7 && boardGrid[new Vector2(currentPiece.BoardPositionX - 1, currentPiece.BoardPositionY + 2)] != gridTileTypes.Player1)
+                        {
+                            allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX - 1, currentPiece.BoardPositionY + 2));
+                        } // 1 Left, 2 Forward
+                        if (currentPiece.BoardPositionX + 1 <= 7 && currentPiece.BoardPositionY + 2 <= 7 && boardGrid[new Vector2(currentPiece.BoardPositionX + 1, currentPiece.BoardPositionY + 2)] != gridTileTypes.Player1)
+                        {
+                            allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX + 1, currentPiece.BoardPositionY + 2));
+                        } // 1 Right, 2 Forward
                         break;
+                        
                     case PieceType.Knight:
                         break;
                     case PieceType.Queen:
                         break;
                     case PieceType.King:
                         break;
+
                     case PieceType.Pawn:
-                        if (currentPiece.BoardPositionY + 1 <= 7 && currentPiece.BoardPositionY + 1 >= 0)
-                            if (boardGrid[new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY + 1)] == gridTileTypes.Empty) { allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY + 1)); } // 1 Forward
-                        if (currentPiece.BoardPositionX - 1 <= 7 && currentPiece.BoardPositionX - 1 >= 0 && currentPiece.BoardPositionY - 1 < 7 && currentPiece.BoardPositionY - 1 >= 0)
-                            if (boardGrid[new Vector2(currentPiece.BoardPositionX - 1, currentPiece.BoardPositionY + 1)] == gridTileTypes.Player2) { allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX - 1, currentPiece.BoardPositionY + 1)); } // 1 Left, 1 Forward
-                        if (currentPiece.BoardPositionX + 1 <= 7 && currentPiece.BoardPositionX + 1 >= 0 && currentPiece.BoardPositionY + 1 < 7 && currentPiece.BoardPositionY + 1 >= 0)
-                            if (boardGrid[new Vector2(currentPiece.BoardPositionX + 1, currentPiece.BoardPositionY + 1)] == gridTileTypes.Player2) { allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX + 1, currentPiece.BoardPositionY + 1)); } // 1 Right, 1 Forward
-                            break;
+                        if (currentPiece.BoardPositionY == 1) // If the pawn hasn't moved since the game started
+                        {
+                            if (boardGrid[new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY + 1)] == gridTileTypes.Empty
+                                && boardGrid[new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY + 2)] == gridTileTypes.Empty)
+                            {
+                                allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY + 2));
+                            } // 2 Forward
+                        }
+
+                        if (currentPiece.BoardPositionY + 1 <= 7)
+                            if (boardGrid[new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY + 1)] == gridTileTypes.Empty)
+                            {
+                                allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY + 1));
+                            } // 1 Forward
+
+                        if (currentPiece.BoardPositionX - 1 >= 0 && currentPiece.BoardPositionY + 1 <= 7)
+                            if (boardGrid[new Vector2(currentPiece.BoardPositionX - 1, currentPiece.BoardPositionY + 1)] == gridTileTypes.Player2)
+                            {
+                                allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX - 1, currentPiece.BoardPositionY + 1));
+                            } // 1 Left, 1 Forward
+
+                        if (currentPiece.BoardPositionX + 1 <= 7 && currentPiece.BoardPositionY + 1 <= 7)
+                            if (boardGrid[new Vector2(currentPiece.BoardPositionX + 1, currentPiece.BoardPositionY + 1)] == gridTileTypes.Player2)
+                            {
+                                allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX + 1, currentPiece.BoardPositionY + 1));
+                            } // 1 Right, 1 Forward
+
+                        //if (currentPiece.BoardPositionY + 1 <= 7 && currentPiece.BoardPositionY + 1 >= 0)
+                        //    if (boardGrid[new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY + 1)] == gridTileTypes.Empty)
+                        //    {
+                        //        allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY + 1));
+                        //    } // 1 Forward
+
+                        //if (currentPiece.BoardPositionX - 1 <= 7 && currentPiece.BoardPositionX - 1 >= 0 && currentPiece.BoardPositionY - 1 <= 7 && currentPiece.BoardPositionY - 1 >= 0)
+                        //    if (boardGrid[new Vector2(currentPiece.BoardPositionX - 1, currentPiece.BoardPositionY + 1)] == gridTileTypes.Player2)
+                        //    {
+                        //        allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX - 1, currentPiece.BoardPositionY + 1));
+                        //    } // 1 Left, 1 Forward
+
+                        //if (currentPiece.BoardPositionX + 1 <= 7 && currentPiece.BoardPositionX + 1 >= 0 && currentPiece.BoardPositionY + 1 <= 7 && currentPiece.BoardPositionY + 1 >= 0)
+                        //    if (boardGrid[new Vector2(currentPiece.BoardPositionX + 1, currentPiece.BoardPositionY + 1)] == gridTileTypes.Player2)
+                        //    {
+                        //        allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX + 1, currentPiece.BoardPositionY + 1));
+                        //    } // 1 Right, 1 Forward
+                        break;
+
                     case PieceType.NONE:
                         break;
                     default:
@@ -54,28 +138,72 @@ namespace FutureChess
                 }
             }
 
-            else if (currentPlayer == playerIndex.Player2)
+            if (currentPlayer == playerIndex.Player2)
             {
                 switch (currentPiece.PieceType)
                 {
                     case PieceType.Tower:
                         break;
+
                     case PieceType.Horse:
                         break;
+
                     case PieceType.Knight:
                         break;
+
                     case PieceType.Queen:
                         break;
+
                     case PieceType.King:
                         break;
+
                     case PieceType.Pawn:
-                        if (currentPiece.BoardPositionY + 1 <= 7 && currentPiece.BoardPositionY + 1 >= 0)
-                            if (boardGrid[new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY - 1)] == gridTileTypes.Empty) { allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY - 1)); } // 1 Forward
-                        if (currentPiece.BoardPositionX - 1 <= 7 && currentPiece.BoardPositionX - 1 >= 0 && currentPiece.BoardPositionY - 1 < 7 && currentPiece.BoardPositionY - 1 >= 0)
-                            if (boardGrid[new Vector2(currentPiece.BoardPositionX - 1, currentPiece.BoardPositionY - 1)] == gridTileTypes.Player1) { allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX - 1, currentPiece.BoardPositionY + 1)); } // 1 Left, 1 Forward
-                        if (currentPiece.BoardPositionX + 1 <= 7 && currentPiece.BoardPositionX + 1 >= 0 && currentPiece.BoardPositionY + 1 < 7 && currentPiece.BoardPositionY + 1 >= 0)
-                            if (boardGrid[new Vector2(currentPiece.BoardPositionX + 1, currentPiece.BoardPositionY - 1)] == gridTileTypes.Player1) { allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX + 1, currentPiece.BoardPositionY + 1)); } // 1 Right, 1 Forward
+                        if (currentPiece.BoardPositionY == 6) // If the pawn hasn't moved since the game started
+                        {
+                            if (boardGrid[new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY - 1)] == gridTileTypes.Empty
+                                && boardGrid[new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY - 2)] == gridTileTypes.Empty)
+                            {
+                                allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY - 2));
+                            } // 2 Forward
+                        }
+
+                        if (currentPiece.BoardPositionY - 1 >= 0)
+                            if (boardGrid[new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY - 1)] == gridTileTypes.Empty)
+                            {
+                                allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY - 1));
+                            } // 1 Forward
+
+                        if (currentPiece.BoardPositionX - 1 >= 0 && currentPiece.BoardPositionY - 1 >= 0)
+                            if (boardGrid[new Vector2(currentPiece.BoardPositionX - 1, currentPiece.BoardPositionY - 1)] == gridTileTypes.Player1)
+                            {
+                                allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX - 1, currentPiece.BoardPositionY - 1));
+                            } // 1 Left, 1 Forward
+
+                        if (currentPiece.BoardPositionX + 1 <= 7 && currentPiece.BoardPositionY - 1 >= 0)
+                            if (boardGrid[new Vector2(currentPiece.BoardPositionX + 1, currentPiece.BoardPositionY - 1)] == gridTileTypes.Player1)
+                            {
+                                allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX + 1, currentPiece.BoardPositionY - 1));
+                            } // 1 Right, 1 Forward
+
+                        //if (currentPiece.BoardPositionY + 1 <= 7 && currentPiece.BoardPositionY - 1 >= 0)
+                        //    if (boardGrid[new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY - 1)] == gridTileTypes.Empty)
+                        //    {
+                        //        allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX, currentPiece.BoardPositionY - 1));
+                        //    } // 1 Forward
+
+                        //if (currentPiece.BoardPositionX - 1 >= 0 && currentPiece.BoardPositionX - 1 >= 0 && currentPiece.BoardPositionY - 1 < 7 && currentPiece.BoardPositionY - 1 >= 0)
+                        //    if (boardGrid[new Vector2(currentPiece.BoardPositionX - 1, currentPiece.BoardPositionY - 1)] == gridTileTypes.Player1)
+                        //    {
+                        //        allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX - 1, currentPiece.BoardPositionY + 1));
+                        //    } // 1 Left, 1 Forward
+
+                        //if (currentPiece.BoardPositionX + 1 <= 7 && currentPiece.BoardPositionX + 1 >= 0 && currentPiece.BoardPositionY + 1 < 7 && currentPiece.BoardPositionY + 1 >= 0)
+                        //    if (boardGrid[new Vector2(currentPiece.BoardPositionX + 1, currentPiece.BoardPositionY - 1)] == gridTileTypes.Player1)
+                        //    {
+                        //        allPossiblePositions.Add(new Vector2(currentPiece.BoardPositionX + 1, currentPiece.BoardPositionY + 1));
+                        //    } // 1 Right, 1 Forward
                         break;
+
                     case PieceType.NONE:
                         break;
                     default:
@@ -90,6 +218,7 @@ namespace FutureChess
 
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private SpriteFont _font;
 
         // BoardTiles
         #region Map 1
@@ -236,6 +365,13 @@ namespace FutureChess
         enum playerIndex { Player1, Player2 }
         Color highlightColor = Color.Gray;
         // Variables
+        int p1_deathPositionX = 10;
+        int p1_deathPositionY = 0;
+        int p2_deathPositionX = 10;
+        int p2_deathPositionY = 7;
+        int p1_deadAmount = 0;
+        int p2_deadAmount = 0;
+
         #region Input
         MouseState currentMouseState;
         MouseState lastMouseState;
@@ -257,6 +393,7 @@ namespace FutureChess
 
         // Constants
         float SPACEBETWEENTILES = 164f;
+        Vector2 POSITIONTEXT = new Vector2(1600, 540);
 
         public Game1()
         {
@@ -273,7 +410,7 @@ namespace FutureChess
         {
             // TODO: Add your initialization logic here
             #region Graphics Settings
-            _graphics.IsFullScreen = true; // Makes the window fullscreen
+            //_graphics.IsFullScreen = true; // Makes the window fullscreen
             _graphics.ApplyChanges();
             #endregion Graphics Settings
 
@@ -374,6 +511,7 @@ namespace FutureChess
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            _font = Content.Load<SpriteFont>("Fonts/textFontFC");
 
             // TODO: use this.Content to load your game content here
             // Board Tiles
@@ -519,44 +657,26 @@ namespace FutureChess
                 { new Vector2(p1_PawnPiece_7.xPosition, p1_PawnPiece_7.yPosition), p1_PawnPiece_7 },
                 { new Vector2(p1_PawnPiece_8.xPosition, p1_PawnPiece_8.yPosition), p1_PawnPiece_8 },
             };
-
-            //p1_TowerPiece_1 = new Tower_Piece(Content.Load<Texture2D>(PATH_PIECES + "towerPiece"), Color.White, 0, 0);
-            //p1_HorsePiece_1 = new Horse_Piece(Content.Load<Texture2D>(PATH_PIECES + "horsePiece"), Color.White, 1, 0);
-            //p1_KnightPiece_1 = new Knight_Piece(Content.Load<Texture2D>(PATH_PIECES + "knightPiece"), Color.White, 2, 0);
-            //p1_KingPiece = new King_Piece(Content.Load<Texture2D>(PATH_PIECES + "kingPiece"), Color.White, 3, 0);
-            //p1_QueenPiece = new Queen_Piece(Content.Load<Texture2D>(PATH_PIECES + "queenPiece"), Color.White, 4, 0);
-            //p1_KnightPiece_2 = new Knight_Piece(Content.Load<Texture2D>(PATH_PIECES + "knightPiece"), Color.White, 5, 0);
-            //p1_HorsePiece_2 = new Horse_Piece(Content.Load<Texture2D>(PATH_PIECES + "horsePiece"), Color.White, 6, 0);
-            //p1_TowerPiece_2 = new Tower_Piece(Content.Load<Texture2D>(PATH_PIECES + "towerPiece"), Color.White, 7, 0);
-
-            //p1_PawnPiece_1 = new Pawn_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPiece"), Color.White, 0, 1);
-            //p1_PawnPiece_2 = new Pawn_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPiece"), Color.White, 1, 1);
-            //p1_PawnPiece_3 = new Pawn_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPiece"), Color.White, 2, 1);
-            //p1_PawnPiece_4 = new Pawn_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPiece"), Color.White, 3, 1);
-            //p1_PawnPiece_5 = new Pawn_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPiece"), Color.White, 4, 1);
-            //p1_PawnPiece_6 = new Pawn_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPiece"), Color.White, 5, 1);
-            //p1_PawnPiece_7 = new Pawn_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPiece"), Color.White, 6, 1);
-            //p1_PawnPiece_8 = new Pawn_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPiece"), Color.White, 7, 1);
             #endregion Player 1
             
             #region Player 2
-            p2_TowerPiece_1 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "towerPiece"), Color.White, 0, 7, PieceType.Tower);
-            p2_HorsePiece_1 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "horsePiece"), Color.White, 1, 7, PieceType.Horse);
-            p2_KnightPiece_1 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "knightPiece"), Color.White, 2, 7, PieceType.Knight);
-            p2_KingPiece = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "kingPiece"), Color.White, 3, 7, PieceType.King);
-            p2_QueenPiece = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "queenPiece"), Color.White, 4, 7, PieceType.Queen);
-            p2_KnightPiece_2 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "knightPiece"), Color.White, 5, 7, PieceType.Knight);
-            p2_HorsePiece_2 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "horsePiece"), Color.White, 6, 7, PieceType.Horse);
-            p2_TowerPiece_2 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "towerPiece"), Color.White, 7, 7, PieceType.Tower);
+            p2_TowerPiece_1 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "towerPieceW"), Color.White, 0, 7, PieceType.Tower);
+            p2_HorsePiece_1 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "horsePieceW"), Color.White, 1, 7, PieceType.Horse);
+            p2_KnightPiece_1 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "knightPieceW"), Color.White, 2, 7, PieceType.Knight);
+            p2_KingPiece = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "kingPieceW"), Color.White, 3, 7, PieceType.King);
+            p2_QueenPiece = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "queenPieceW"), Color.White, 4, 7, PieceType.Queen);
+            p2_KnightPiece_2 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "knightPieceW"), Color.White, 5, 7, PieceType.Knight);
+            p2_HorsePiece_2 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "horsePieceW"), Color.White, 6, 7, PieceType.Horse);
+            p2_TowerPiece_2 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "towerPieceW"), Color.White, 7, 7, PieceType.Tower);
 
-            p2_PawnPiece_1 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPiece"), Color.White, 0, 6, PieceType.Pawn);
-            p2_PawnPiece_2 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPiece"), Color.White, 1, 6, PieceType.Pawn);
-            p2_PawnPiece_3 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPiece"), Color.White, 2, 6, PieceType.Pawn);
-            p2_PawnPiece_4 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPiece"), Color.White, 3, 6, PieceType.Pawn);
-            p2_PawnPiece_5 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPiece"), Color.White, 4, 6, PieceType.Pawn);
-            p2_PawnPiece_6 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPiece"), Color.White, 5, 6, PieceType.Pawn);
-            p2_PawnPiece_7 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPiece"), Color.White, 6, 6, PieceType.Pawn);
-            p2_PawnPiece_8 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPiece"), Color.White, 7, 6, PieceType.Pawn);
+            p2_PawnPiece_1 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPieceW"), Color.White, 0, 6, PieceType.Pawn);
+            p2_PawnPiece_2 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPieceW"), Color.White, 1, 6, PieceType.Pawn);
+            p2_PawnPiece_3 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPieceW"), Color.White, 2, 6, PieceType.Pawn);
+            p2_PawnPiece_4 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPieceW"), Color.White, 3, 6, PieceType.Pawn);
+            p2_PawnPiece_5 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPieceW"), Color.White, 4, 6, PieceType.Pawn);
+            p2_PawnPiece_6 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPieceW"), Color.White, 5, 6, PieceType.Pawn);
+            p2_PawnPiece_7 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPieceW"), Color.White, 6, 6, PieceType.Pawn);
+            p2_PawnPiece_8 = new Chess_Piece(Content.Load<Texture2D>(PATH_PIECES + "pawnPieceW"), Color.White, 7, 6, PieceType.Pawn);
 
             p2_Pieces_Dictionary = new Dictionary<Vector2, Chess_Piece>()
             {
@@ -730,10 +850,40 @@ namespace FutureChess
                                     p1_Pieces_Dictionary[selectedPiecePosition].MovePiece(m1_Board_Tiles_Array[boardArray_Index].BoardPositionX, m1_Board_Tiles_Array[boardArray_Index].BoardPositionY);
                                     // Update the currentPiece position in the dictionary
                                     p1_Pieces_Dictionary[selectedNewPosition] = p1_Pieces_Dictionary[selectedPiecePosition]; // Player1_Pieces Dictionary
-                                    boardGrid_Dictionary[selectedNewPosition] = gridTileTypes.Player1; // Board_Grid Dictionary
+
+                                    // Move the killed player2_piece if the new position is on a player2_piece
+                                    if (boardGrid_Dictionary[selectedNewPosition] == gridTileTypes.Player2)
+                                    {
+                                        foreach (var cPiece in p2_Pieces_Dictionary.Keys)
+                                        {
+                                            if (p2_Pieces_Dictionary[cPiece].BoardPositionX == selectedNewPosition.X && p2_Pieces_Dictionary[cPiece].BoardPositionY == selectedNewPosition.Y)
+                                            {
+                                                // Move the dead piece of the board
+                                                p2_Pieces_Dictionary[cPiece].MovePiece(p2_deathPositionX + p2_deadAmount, p2_deathPositionY);
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                    // Get the right element in boardGrid_Dictionary and update it
+                                    foreach (var cPos in boardGrid_Dictionary.Keys)
+                                    {
+                                        if (cPos.X == selectedNewPosition.X && cPos.Y == selectedNewPosition.Y)
+                                        {
+                                            // Set the new piecePosition to Player1
+                                            boardGrid_Dictionary[cPos] = gridTileTypes.Player1;
+                                            break;
+                                        }
+                                        // Set the old piecePosition to Empty
+                                        else if (cPos.X == selectedPiecePosition.X && cPos.Y == selectedPiecePosition.Y)
+                                        {
+                                            boardGrid_Dictionary[cPos] = gridTileTypes.Empty;
+                                            break;
+                                        }
+                                    }
+
                                     // Remove the old piece-pair from the dictionary
                                     p1_Pieces_Dictionary.Remove(selectedPiecePosition); // Player1_Pieces Dictionary
-                                    boardGrid_Dictionary[selectedPiecePosition] = gridTileTypes.Empty; // Board_Grid Dictionary
                                     isPieceSelected = false;
 
                                     currentPlayer = playerIndex.Player2; // Change to the other player's turn (player1 to player2)
@@ -759,11 +909,41 @@ namespace FutureChess
                                     // Move the piece to its new position
                                     p2_Pieces_Dictionary[selectedPiecePosition].MovePiece(m1_Board_Tiles_Array[boardArray_Index].BoardPositionX, m1_Board_Tiles_Array[boardArray_Index].BoardPositionY);
                                     // Update the currentPiece position in the dictionary
-                                    p2_Pieces_Dictionary[selectedNewPosition] = p2_Pieces_Dictionary[selectedPiecePosition]; // Player1_Pieces Dictionary
-                                    boardGrid_Dictionary[selectedNewPosition] = gridTileTypes.Player1; // Board_Grid Dictionary
+                                    p2_Pieces_Dictionary[selectedNewPosition] = p2_Pieces_Dictionary[selectedPiecePosition]; // Player2_Pieces Dictionary
+
+                                    // Move the killed player1_piece if the new position is on a player1_piece
+                                    if (boardGrid_Dictionary[selectedNewPosition] == gridTileTypes.Player1)
+                                    {
+                                        foreach (var cPiece in p1_Pieces_Dictionary.Keys)
+                                        {
+                                            if (p1_Pieces_Dictionary[cPiece].BoardPositionX == selectedNewPosition.X && p1_Pieces_Dictionary[cPiece].BoardPositionY == selectedNewPosition.Y)
+                                            {
+                                                // Move the dead piece of the board
+                                                p1_Pieces_Dictionary[cPiece].MovePiece(p1_deathPositionX + p1_deadAmount, p1_deathPositionY);
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                    // Get the right element in boardGrid_Dictionary and update it
+                                    foreach (var cPos in boardGrid_Dictionary.Keys)
+                                    {
+                                        if (cPos.X == selectedNewPosition.X && cPos.Y == selectedNewPosition.Y)
+                                        {
+                                            // Set the new piecePosition to Player2
+                                            boardGrid_Dictionary[cPos] = gridTileTypes.Player2;
+                                            break;
+                                        }
+                                        // Set the old piecePosition to Empty
+                                        else if (cPos.X == selectedPiecePosition.X && cPos.Y == selectedPiecePosition.Y)
+                                        {
+                                            boardGrid_Dictionary[cPos] = gridTileTypes.Empty;
+                                            break;
+                                        }
+                                    }
+
                                     // Remove the old piece-pair from the dictionary
                                     p2_Pieces_Dictionary.Remove(selectedPiecePosition); // Player1_Pieces Dictionary
-                                    boardGrid_Dictionary[selectedPiecePosition] = gridTileTypes.Empty; // Board_Grid Dictionary
                                     isPieceSelected = false;
 
                                     currentPlayer = playerIndex.Player1; // Change to the other player's turn (player2 to player1)
@@ -840,6 +1020,14 @@ namespace FutureChess
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
+
+            // Draw the selectedPiece's position as text
+            if (currentPlayer == playerIndex.Player1 && p1_Pieces_Dictionary.ContainsKey(selectedPiecePosition))
+                _spriteBatch.DrawString(_font, "X: " + p1_Pieces_Dictionary[selectedPiecePosition].BoardPositionX + " Y: " + p1_Pieces_Dictionary[selectedPiecePosition].BoardPositionY, POSITIONTEXT, Color.Black);
+            else if (currentPlayer == playerIndex.Player2 && p2_Pieces_Dictionary.ContainsKey(selectedPiecePosition))
+                _spriteBatch.DrawString(_font, "X: " + p2_Pieces_Dictionary[selectedPiecePosition].BoardPositionX + " Y: " + p2_Pieces_Dictionary[selectedPiecePosition].BoardPositionY, POSITIONTEXT, Color.Black);
+
+            //_spriteBatch.DrawString(_font, "X: " + selectedPiecePosition.X, POSITIONTEXT, Color.Black);
 
             // Board Tiles
             #region Map 1
